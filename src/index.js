@@ -8,7 +8,6 @@ import 'mutation-observer';
 // 兼容ie10 --end
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
