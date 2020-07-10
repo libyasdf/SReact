@@ -1,68 +1,98 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React App 说明文档
 
-## Available Scripts
+### 重点:兼容`ie 10`
 
-In the project directory, you can run:
+1. 删除整个`node_modules` 包
 
-### `npm start`
+2. 改变`node_modules`  
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+   ```javascript
+   "browserslist": {
+       "production": [
+         ">0.2%",
+         "not dead",
+         "not op_mini all",
+         "ie > 9"
+       ],
+       "development": [
+         "last 1 chrome version",
+         "last 1 firefox version",
+         "last 1 safari version",
+         "ie > 9"
+       ]
+   }
+   ```
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+3. 暴露`webpack`配置文件
 
-### `npm test`
+   ```javascript
+   // 添加git仓库
+   git add .
+   git commit -m '为了运行eject'
+   //命令行
+   $ npm run eject
+   ```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. 一键安装
 
-### `npm run build`
+   ```javascript
+   npm install
+   ```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5. 安装兼容依赖
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+   ```javascript
+   npm install setprototypeof react-app-polyfill core-js mutation-observer --save
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+6. 编辑`react`入口文件
 
-### `npm run eject`
+   ```javascript
+   // 这里是src/index.js
+   import 'react-app-polyfill/ie9';
+   import 'react-app-polyfill/stable';
+   import './polyfill';       // 说明 请看序号7
+   import 'core-js/es/set';
+   import 'core-js/es/map';
+   import 'mutation-observer';
+   import React from 'react';
+   import ReactDOM from 'react-dom';
+   import './index.css';
+   import App from './App';
+   import * as serviceWorker from './serviceWorker';
+   
+   ReactDOM.render(
+       <App />,
+     document.getElementById('root')
+   );
+   serviceWorker.unregister();
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+7. `pofyfill`说明
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```javascript
+   # src文件夹下面创建polyfill.js文件
+   import  setprototypeof from 'setprototypeof';
+   Object.setPrototypeOf = setprototypeof;
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+8. 改变`webpack.config.js`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   
 
-## Learn More
+文档地址
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| 文档名称             | 文档地址                                   |
+| -------------------- | ------------------------------------------ |
+| Antd Design (UI框架) | https://ant.design/docs/react/introduce-cn |
+| React                | https://react.docschina.org/               |
+| Axios                | http://www.axios-js.com/docs/              |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 文件夹结构说明
 
-### Code Splitting
+> 重要面向src目录里面的内容
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
++ `src/pages`要编写的页面
++ `src/server`request请求函数
++ `src/util` 通用方法
++ `src/components` 公用组件
