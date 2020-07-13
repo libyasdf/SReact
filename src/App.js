@@ -1,3 +1,7 @@
+/**
+ * 路由
+ */
+
 import React from 'react';
 import {
     BrowserRouter as Router, MemoryRouter, Route, Switch, Redirect
@@ -11,7 +15,8 @@ import loadable from '../src/Util/loadable';
 // const Test = loadable(() => import('DeductionTable/Test'));
 const Home = loadable(() => import('./routes/DeductionTable/DeductionTable'));
 const Test = loadable(() => import('./routes/DeductionTable/Test'));
-const str = window.location.search;
+const str = "?url=/sec-react-tj/home";
+// const str = window.location.search;
 const params = qs.parse(str, { ignoreQueryPrefix: true });
 const initUrl = params.url;
 // import {Button} from "antd";

@@ -24,11 +24,7 @@ const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
-
-// 
-const ROOT_PATH = path.resolve(__dirname);
-const APP_PATH = path.resolve(ROOT_PATH, 'src');
-// 
+ 
 const postcssNormalize = require('postcss-normalize');
 
 const appPackageJson = require(paths.appPackageJson);
@@ -165,7 +161,7 @@ module.exports = function(webpackEnv) {
     ].filter(Boolean),
     output: {
       // The build folder.
-      path: isEnvProduction ? paths.appBuild : undefined,
+      path: isEnvProduction ? paths.appBuild : undefined,      
       // Add /* filename */ comments to generated require()s in the output.
       pathinfo: isEnvDevelopment,
       // There will be one main bundle, and one file per asynchronous chunk.
@@ -182,7 +178,8 @@ module.exports = function(webpackEnv) {
       // webpack uses `publicPath` to determine where the app is being served from.
       // It requires a trailing slash, or the file assets will get an incorrect path.
       // We inferred the "public path" (such as / or /my-project) from homepage.
-      publicPath: paths.publicUrlOrPath,
+      //paths.publicUrlOrPath,
+      publicPath: isEnvDevelopment ? '/' : './', // 资源路径 用来指明相对于服务器根路径静态资源存在的位置
       // Point sourcemap entries to original disk location (format as URL on Windows)
       devtoolModuleFilenameTemplate: isEnvProduction
         ? info =>
@@ -293,11 +290,7 @@ module.exports = function(webpackEnv) {
       extensions: paths.moduleFileExtensions
         .map(ext => `.${ext}`)
         .filter(ext => useTypeScript || !ext.includes('ts')),
-      alias: {
-        DeductionTable: path.resolve(APP_PATH, 'routes/DeductionTable'),
-        CommonMethod: path.resolve(APP_PATH, 'Util/CommonMethod'),
-        ServiceCall: path.resolve(APP_PATH, 'Util/ServiceCall'),
-        CssFile: path.resolve(APP_PATH, 'index.less'),
+      alias: {        
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',
@@ -306,6 +299,12 @@ module.exports = function(webpackEnv) {
           'react-dom$': 'react-dom/profiling',
           'scheduler/tracing': 'scheduler/tracing-profiling',
         }),
+        '@': paths.appSrc,
+        '@DeductionTable': paths.DeductionTable,
+        '@ServiceCall': paths.ServiceCall,
+        '@CommonMethod': paths.CommonMethod,
+        '@CssFile': paths.CssFile,
+        '@HookComponent': paths.HookComponent,
         ...(modules.webpackAliases || {}),
       },
       plugins: [

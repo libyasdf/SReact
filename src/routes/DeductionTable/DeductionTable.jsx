@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 // import ReactDOM from 'react-dom';
 import { Table } from 'antd';
-import * as ServiceCall from '../../Util/ServiceCall';
-import * as CommonMethod from '../../Util/CommonMethod';
-import '../../index.less';
+import * as ServiceCall from '@ServiceCall';
+import * as CommonMethod from '@CommonMethod';
+import '@CssFile';
 
 class DeductionTable extends Component {
   constructor(props) {

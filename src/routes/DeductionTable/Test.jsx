@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 // import ReactDOM from 'react-dom';
 // import { Table } from 'antd';
-import * as ServiceCall from '../../Util/ServiceCall';
-import * as CommonMethod from '../../Util/CommonMethod';
-// import Example from 'HookComponent/Testcon';
-// import 'CssFile';
+import * as ServiceCall from '@ServiceCall';
+import * as CommonMethod from '@CommonMethod';
+import '@CssFile';
+import Example from '@HookComponent/Testcon';
 
 class Test extends Component {
   constructor(props) {
@@ -61,7 +61,7 @@ class Test extends Component {
       <div className="portal-zone">
         {header}
         liby
-        {/* <Example /> */}
+        <Example />
       </div>
     );
   }
