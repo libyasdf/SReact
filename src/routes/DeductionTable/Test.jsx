@@ -1,3 +1,7 @@
+/**
+ * 穿梭框
+ * 
+ */
 import React, { Component } from 'react';
 // import ReactDOM from 'react-dom';
 // import { Table } from 'antd';
@@ -5,6 +9,20 @@ import * as ServiceCall from '@ServiceCall';
 import * as CommonMethod from '@CommonMethod';
 import '@CssFile';
 import Example from '@HookComponent/Testcon';
+import Alertnote from '@HookComponent/Alertnote';
+import Transfertree from '@HookComponent/Transfertree';
+import TitleBlueLine from '@HookComponent/TitleBlueLine';
+
+import { Popconfirm, message, Button, Popover } from 'antd';
+
+const text = <span>Title</span>;
+const content = (
+  <div>
+    <p>Content</p>
+    <p>Content</p>
+  </div>
+);
+const buttonWidth = 370;
 
 class Test extends Component {
   constructor(props) {
@@ -56,12 +74,46 @@ class Test extends Component {
         </button>
       </div>
     );
+    const confirm = () => {
+      message.info('Clicked on Yes.');
+    }
 
     return (
       <div className="portal-zone">
         {header}
-        liby
+        <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
+          <Popconfirm placement="leftTop" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
+            <Button>LT</Button>
+          </Popconfirm>
+          <Popconfirm placement="left" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
+            <Button>Left</Button>
+          </Popconfirm>
+          <Popconfirm
+            placement="leftBottom"
+            title={text}
+            onConfirm={confirm}
+            okText="Yes"
+            cancelText="No"
+          >
+            <Button>LB</Button>
+          </Popconfirm>
+        </div>
+        <Alertnote />
         <Example />
+        <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
+          <br />
+          <Popover placement="left" title={text} content={content} trigger="click">
+            <Button>Left</Button>
+          </Popover>
+          <Popover placement="leftTop" title={text} content={content} trigger="click">
+            <Button>LT</Button>
+          </Popover>
+          <Popover placement="leftBottom" title={text} content={content} trigger="click">
+            <Button>LB</Button>
+          </Popover>
+        </div>
+        <Transfertree />
+        <TitleBlueLine />
       </div>
     );
   }

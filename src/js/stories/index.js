@@ -9,6 +9,7 @@ import { action } from '@storybook/addon-actions';
 import { Button } from '@storybook/react/demo'; // 这里引入你想展示的组件
 import Example from '../components/hook/Testcon';
 import Input from '../components/presentational/Input';
+import TitleBlueLine from '../components/hook/TitleBlueLine';// 小标题蓝色底线 灰色底线
 
 storiesOf('Button|test', module)
   .addDecorator((storyFn) => <div style={{ textAlign: 'center' }}>{storyFn()}</div>)
@@ -32,6 +33,9 @@ storiesOf('Button|test', module)
     );
   });
 // 注意返回
-
+const data_1 = {
+  titleName: '待办事项',
+}
 storiesOf('Hook|test', module)
-  .add('click hook', () => <Example />);
+  .add('click hook', () => <Example />)
+  .add('小标题-蓝色底线', () => <TitleBlueLine value={data_1}/>);
