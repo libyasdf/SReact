@@ -58,11 +58,12 @@ module.exports = {
   appIndexJs: resolveModule(resolveApp, 'src/index'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
-  DeductionTable: resolveApp('src/routes/DeductionTable'),// 表格
-  CommonMethod: resolveApp('src/Util/CommonMethod'),// 公用方法
+  DeductionTable: resolveApp('src/routes/DeductionTable'),// 测试页面所在-文件夹
+  CommonMethod: resolveApp('src/Util/CommonMethod'),// 公用方法文件
   ServiceCall: resolveApp('src/Util/ServiceCall'),// 接口文件
-  CssFile: resolveApp('src/index.less'),// 主线css
-  HookComponent: resolveApp('src/js/components/hook'),// hook公用组件
+  CssFile: resolveApp('src/index.less'),// 主线css文件
+  PublicComponent: resolveApp('src/js/components'),// 公用组件-文件夹
+  HookComponent: resolveApp('src/js/components/hook'),// hook公用组件-文件夹
   appTsConfig: resolveApp('tsconfig.json'),
   appJsConfig: resolveApp('jsconfig.json'),
   yarnLockFile: resolveApp('yarn.lock'),

@@ -307,6 +307,7 @@ module.exports = function (webpackEnv) {
         '@CommonMethod': paths.CommonMethod,
         '@CssFile': paths.CssFile,
         '@HookComponent': paths.HookComponent,
+        '@PublicComponent': paths.PublicComponent,
         ...(modules.webpackAliases || {}),
       },
       plugins: [

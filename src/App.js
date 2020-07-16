@@ -19,6 +19,7 @@ const Test = loadable(() => import('./routes/DeductionTable/Test'));
 const str = window.location.search;
 const params = qs.parse(str, { ignoreQueryPrefix: true });
 const initUrl = params.url;
+console.log("initUrl",initUrl);
 // import {Button} from "antd";
 
 // function App() {

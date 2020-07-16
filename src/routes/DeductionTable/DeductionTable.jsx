@@ -70,7 +70,7 @@ class DeductionTable extends Component {
       'one': 'dsd',
       'two': 'e'
     });
-
+    console.log('datatest',dataTest);
     const header = (
       <div className="deduction_table_header">
         <div className="deduction_table_name"><span>{ headername }</span></div>

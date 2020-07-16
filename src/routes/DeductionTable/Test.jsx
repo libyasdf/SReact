@@ -8,10 +8,11 @@ import React, { Component } from 'react';
 import * as ServiceCall from '@ServiceCall';
 import * as CommonMethod from '@CommonMethod';
 import '@CssFile';
-import Example from '@HookComponent/Testcon';
-import Alertnote from '@HookComponent/Alertnote';
-import Transfertree from '@HookComponent/Transfertree';
-import TitleBlueLine from '@HookComponent/TitleBlueLine';
+import Example from '@PublicComponent/presentational/Testcon';
+import Alertnote from '@PublicComponent/presentational/Alertnote';
+import Transfertree from '@PublicComponent/presentational/Transfertree';
+import TitleBlueLine from '@HookComponent/title/TitleBlueLine';
+import PrograssBulb from '@HookComponent/prograss/PrograssBulb';
 
 import { Popconfirm, message, Button, Popover } from 'antd';
 
@@ -113,7 +114,8 @@ class Test extends Component {
           </Popover>
         </div>
         <Transfertree />
-        <TitleBlueLine />
+        <TitleBlueLine value={{titleName: '待办事项'}}/>
+        <PrograssBulb value={[{ bright: true, titlename: 'liucheng1' }, { bright: false, titlename: '22222222' }, { bright: false, titlename: '33333333' }]}/>
       </div>
     );
   }
