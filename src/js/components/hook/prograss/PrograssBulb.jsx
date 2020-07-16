@@ -3,7 +3,6 @@
 */
 import React, { useState, useEffect } from 'react';
 import '../hook.less';
-// import brightbilb from 'appPublic/';
 
 function PrograssBulb(props) {
     let data = props.value;// 数据接收
@@ -20,7 +19,7 @@ function PrograssBulb(props) {
                 console.log("?", item);
                 return (
                     <div className='prograss-bright-bulb-zone' key={index}>
-                        <div className='prograss-bright-bulb-icon'>{item.bright ? <img src={require('@/assets/bulb-bright.jpg')} alt="" /> : <img src={require('@/assets/bulb-dark.jpg')} alt="" />}</div>
+                        <div className='prograss-bright-bulb-icon'>{item.bright ? <img src={require('@/assets/bulb-bright.png')} alt="" /> : <img src={require('@/assets/bulb-dark.png')} alt="" />}</div>
                         <div>{item.titlename}</div>
                     </div>
                 );
