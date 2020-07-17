@@ -3,8 +3,52 @@
 #### 目录结构
 
 `tree -L 5 -I 'node_modules/' > test.md`
+```
+├── src
+│   ├── App.js  路由
+│   ├── App.test.js
+│   ├── Util
+│   │   ├── CommonMethod.js 公用方法
+│   │   ├── ServiceCall.js 接口调用/axios
+│   │   ├── Util.js 全局变量
+│   │   └── loadable.js 路由拆分
+│   ├── index.js 入口文件
+│   ├── index.less 公共样式
+│   ├── js
+│   │   ├── components 组件/公共组件
+│   │   │   ├── container   正式组件「class/函数」写法
+│   │   │   │   └── FormContainer.jsx
+│   │   │   ├── hook        正式组件「hook」写法
+│   │   │   │   ├── hook.less  组件的公共样式
+│   │   │   │   ├── modal      弹框
+│   │   │   │   ├── prograss   流程
+│   │   │   │   └── title      标题
+│   │   │   └── presentational  测试组件「不确定的组件」写在这里
+│   │   │       ├── Alertnote.jsx
+│   │   │       ├── Input.jsx
+│   │   │       ├── Testcon.jsx
+│   │   │       └── Transfertree.jsx
+│   │   └── stories 组件测试storybook
+│   │       └── index.js   组件测试主页
+│   ├── logo.svg
+│   ├── polyfill.js
+│   ├── routes  各个页面
+│   │   ├── DeductionTable （测试模块：一个模块一个文件夹）
+│   │   │   ├── DeductionTable.jsx
+│   │   │   └── Test.jsx
+│   │   └── 其它模块文件夹
+│   ├── serviceWorker.js
+│   └── setupTests.js
+```
 
+----
 
+#### 注意事项
+
+Webpack 只处理 src 中的文件。 你需要将任何 JS 和 CSS 文件放在 src 中，否则 Webpack 将发现不了它们
+只能在 `public/index.html` 中使用 `public` 中的文件
+
+----
 
 ### 重点:兼容`ie 10`
 

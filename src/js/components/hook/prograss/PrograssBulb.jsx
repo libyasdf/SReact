@@ -6,7 +6,7 @@ import '../hook.less';
 
 function PrograssBulb(props) {
     let data = props.value;// 数据接收
-    console.log("流程图灯泡 暗/亮：", process.env.PUBLIC_URL + '/logo192.png');
+    console.log("流程图灯泡 暗/亮：");
     const [count, setCount] = useState(0);
 
     useEffect(() => {
